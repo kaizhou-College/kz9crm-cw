@@ -13,6 +13,20 @@
 				<result name="queryDis_success">/jsp/~sale/dispatch.jsp</result>
 				<result name="editQuery_success">/jsp/~sale/edit.jsp</result>
 			</action>
+			<action name="cust_*" class="cstCustomerAction" method="{1}">
+				<result name="list_success">/jsp/~cust/cust/list.jsp</result>
+				<result name="gaolist_success">/jsp/~cust/cust/listData.jsp</result>
+				<result name="orders_success">/jsp/~cust/cust/orders.jsp</result>
+				<result name="active_success">/jsp/~cust/cust/activities.jsp</result>
+				<result name="linkman_success">/jsp/~cust/cust/linkman.jsp</result>
+				<result name="edit_success">/jsp/~cust/cust/edit.jsp</result>
+				<result name="delcust_success" type="redirectAction">cust_list</result>
+				
+			</action>
+			<action name="link_*" class="cstLinkManAction" method="{1}">
+				<result name="select_success">/jsp/~cust/cust/linkman_add.jsp</result>
+				
+			</action>
 		</package>
 	
 	

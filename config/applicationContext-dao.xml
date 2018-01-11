@@ -18,7 +18,11 @@
 		<bean id="salChanceDaoImpl" class="com.kz.crm.dao.impl.SalChanceDaoImpl">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
-
-
+		<bean id="cstCustomerDaoImpl" class="com.kz.crm.dao.impl.CstCustomerDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="linkManDaoImpl" class="com.kz.crm.dao.impl.LinkManDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
 
 </beans>

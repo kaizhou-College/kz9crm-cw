@@ -7,12 +7,16 @@
 <hibernate-configuration>
 
 <session-factory>
-	<property name="dialect">org.hibernate.dialect.OracleDialect</property>
-	
+	<property name="dialect">
+		org.hibernate.dialect.OracleDialect
+	</property>
+
 	<property name="show_sql">true</property>
 	<property name="format_sql">true</property>
 	<mapping resource="com/kz/crm/entity/SalChance.hbm.xml" />
 	<mapping resource="com/kz/crm/entity/SalPlan.hbm.xml" />
+	<mapping resource="com/kz/crm/entity/CstCustomer.hbm.xml" />
+	<mapping resource="com/kz/crm/entity/CstLinkman.hbm.xml" />
 
 </session-factory>
 
