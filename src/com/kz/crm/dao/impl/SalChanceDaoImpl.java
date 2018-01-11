@@ -65,7 +65,7 @@ public class SalChanceDaoImpl extends HibernateDaoSupport implements SalChanceDa
 		//System.out.println(size+"没用的");
 		return size;
 	}
-	//查询最大页
+	//高级查询最大页
 	public int queryMaxByGaoJi(int pageSize,SalChance salChance) {
 		Session session = this.getSession();
 		int size = queryCountByGaoJi(salChance);

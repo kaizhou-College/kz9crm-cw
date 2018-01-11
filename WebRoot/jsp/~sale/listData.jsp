@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@include file="../../common/comm.jsp" %>
+<link href="${basePath}/css/style.css" rel="stylesheet" type="text/css">
     <s:iterator value="chances" var="chance">
 			<tr>
 				<td class="list_data_number">${chance.chcId}</td>
@@ -16,7 +17,16 @@
 				</td>
 			</tr>
 		</s:iterator>
-
+		<tr>
+		<th colspan="7" class="pager">
+			<div class="pager">
+				共<s:property value="count"/>条记录 每页<input value="<s:property value='pageSize'/>" size="2" />条
+				<kz:page max="${max}" url="${basePath}/sale_list" page="${page}"></kz:page>
+				转到<input id="toId" size="2" />页
+				<button width="20" id="go">GO</button>
+			</div>
+		</th>
+	</tr>
 	<script type="text/javascript">
 		function del(id){
 			

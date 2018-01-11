@@ -1,32 +1,14 @@
 package com.kz.crm.entity;
 
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * CstCustomer entity. @author MyEclipse Persistence Tools
  */
 
 public class CstCustomer implements java.io.Serializable {
-
-	// Fields
-
-	private String custNo;
-	@Override
-	public String toString() {
-		return "CstCustomer [custAddr=" + custAddr + ", custBank=" + custBank
-				+ ", custBankAccount=" + custBankAccount + ", custBankroll="
-				+ custBankroll + ", custChieftain=" + custChieftain
-				+ ", custCredit=" + custCredit + ", custFax=" + custFax
-				+ ", custLevel=" + custLevel + ", custLevelLabel="
-				+ custLevelLabel + ", custLicenceNo=" + custLicenceNo
-				+ ", custLocalTaxNo=" + custLocalTaxNo + ", custManagerId="
-				+ custManagerId + ", custManagerName=" + custManagerName
-				+ ", custName=" + custName + ", custNationalTaxNo="
-				+ custNationalTaxNo + ", custNo=" + custNo + ", custRegion="
-				+ custRegion + ", custSatisfy=" + custSatisfy + ", custStatus="
-				+ custStatus + ", custTel=" + custTel + ", custTurnover="
-				+ custTurnover + ", custWebsite=" + custWebsite + ", custZip="
-				+ custZip + "]";
-	}
-
 	private String custName;
 	private String custRegion;
 	private Integer custManagerId;
@@ -50,56 +32,47 @@ public class CstCustomer implements java.io.Serializable {
 	private String custNationalTaxNo;
 	private String custStatus;
 
-	// Constructors
+	//一个客户信息管理对应多个联系人(一对多)
+	private Set<CstLinkman> cstlinkman=new HashSet<CstLinkman>();
+	// Fields
 
-	/** default constructor */
-	public CstCustomer() {
+	private String custNo;
+	@Override
+	public String toString() {
+		return "CstCustomer [custAddr=" + custAddr + ", custBank=" + custBank
+				+ ", custBankAccount=" + custBankAccount + ", custBankroll="
+				+ custBankroll + ", custChieftain=" + custChieftain
+				+ ", custCredit=" + custCredit + ", custFax=" + custFax
+				+ ", custLevel=" + custLevel + ", custLevelLabel="
+				+ custLevelLabel + ", custLicenceNo=" + custLicenceNo
+				+ ", custLocalTaxNo=" + custLocalTaxNo + ", custManagerId="
+				+ custManagerId + ", custManagerName=" + custManagerName
+				+ ", custName=" + custName + ", custNationalTaxNo="
+				+ custNationalTaxNo + ", custNo=" + custNo + ", custRegion="
+				+ custRegion + ", custSatisfy=" + custSatisfy + ", custStatus="
+				+ custStatus + ", custTel=" + custTel + ", custTurnover="
+				+ custTurnover + ", custWebsite=" + custWebsite + ", custZip="
+				+ custZip + "]";
 	}
 
-	/** minimal constructor */
-	public CstCustomer(String custNo, String custName) {
-		this.custNo = custNo;
-		this.custName = custName;
-	}
+
+
 
 	/** full constructor */
-	public CstCustomer(String custNo, String custName, String custRegion,
-			Integer custManagerId, String custManagerName, Integer custLevel,
-			String custLevelLabel, Integer custSatisfy, Integer custCredit,
-			String custAddr, String custZip, String custTel, String custFax,
-			String custWebsite, String custLicenceNo, String custChieftain,
-			Integer custBankroll, String custTurnover, String custBank,
-			String custBankAccount, String custLocalTaxNo,
-			String custNationalTaxNo, String custStatus) {
-		this.custNo = custNo;
-		this.custName = custName;
-		this.custRegion = custRegion;
-		this.custManagerId = custManagerId;
-		this.custManagerName = custManagerName;
-		this.custLevel = custLevel;
-		this.custLevelLabel = custLevelLabel;
-		this.custSatisfy = custSatisfy;
-		this.custCredit = custCredit;
-		this.custAddr = custAddr;
-		this.custZip = custZip;
-		this.custTel = custTel;
-		this.custFax = custFax;
-		this.custWebsite = custWebsite;
-		this.custLicenceNo = custLicenceNo;
-		this.custChieftain = custChieftain;
-		this.custBankroll = custBankroll;
-		this.custTurnover = custTurnover;
-		this.custBank = custBank;
-		this.custBankAccount = custBankAccount;
-		this.custLocalTaxNo = custLocalTaxNo;
-		this.custNationalTaxNo = custNationalTaxNo;
-		this.custStatus = custStatus;
-	}
+
 
 	// Property accessors
 
 	public String getCustNo() {
 		return this.custNo;
+	}
+
+	public Set<CstLinkman> getCstlinkman() {
+		return cstlinkman;
+	}
+
+	public void setCstlinkman(Set<CstLinkman> cstlinkman) {
+		this.cstlinkman = cstlinkman;
 	}
 
 	public void setCustNo(String custNo) {
@@ -281,5 +254,51 @@ public class CstCustomer implements java.io.Serializable {
 	public void setCustStatus(String custStatus) {
 		this.custStatus = custStatus;
 	}
+
+
+
+
+	public CstCustomer(String custName, String custRegion,
+			Integer custManagerId, String custManagerName, Integer custLevel,
+			String custLevelLabel, Integer custSatisfy, Integer custCredit,
+			String custAddr, String custZip, String custTel, String custFax,
+			String custWebsite, String custLicenceNo, String custChieftain,
+			Integer custBankroll, String custTurnover, String custBank,
+			String custBankAccount, String custLocalTaxNo,
+			String custNationalTaxNo, String custStatus, String custNo) {
+		super();
+		this.custName = custName;
+		this.custRegion = custRegion;
+		this.custManagerId = custManagerId;
+		this.custManagerName = custManagerName;
+		this.custLevel = custLevel;
+		this.custLevelLabel = custLevelLabel;
+		this.custSatisfy = custSatisfy;
+		this.custCredit = custCredit;
+		this.custAddr = custAddr;
+		this.custZip = custZip;
+		this.custTel = custTel;
+		this.custFax = custFax;
+		this.custWebsite = custWebsite;
+		this.custLicenceNo = custLicenceNo;
+		this.custChieftain = custChieftain;
+		this.custBankroll = custBankroll;
+		this.custTurnover = custTurnover;
+		this.custBank = custBank;
+		this.custBankAccount = custBankAccount;
+		this.custLocalTaxNo = custLocalTaxNo;
+		this.custNationalTaxNo = custNationalTaxNo;
+		this.custStatus = custStatus;
+		this.custNo = custNo;
+	}
+
+
+
+
+	public CstCustomer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 
 }
