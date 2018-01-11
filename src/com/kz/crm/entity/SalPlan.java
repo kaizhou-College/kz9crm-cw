@@ -5,11 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- * SalPlan entity. @author MyEclipse Persistence Tools
- */
-
-@Entity
 public class SalPlan implements java.io.Serializable {
 
 	// Fields
@@ -18,6 +13,10 @@ public class SalPlan implements java.io.Serializable {
 	@GeneratedValue
 	private Integer plaId;
 	private Integer plaChcId;
+
+	//private Integer plaChcId;
+	private SalChance salChance;
+
 	private Date plaDate;
 	private String plaTodo;
 	private String plaResult;
@@ -29,18 +28,20 @@ public class SalPlan implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
+
 	public SalPlan(Integer plaId, Integer plaChcId, Date plaDate, String plaTodo) {
 		this.plaId = plaId;
 		this.plaChcId = plaChcId;
+	}
+
+	public SalPlan( Date plaDate, String plaTodo) {
+
 		this.plaDate = plaDate;
 		this.plaTodo = plaTodo;
 	}
 
-	/** full constructor */
-	public SalPlan(Integer plaId, Integer plaChcId, Date plaDate,
-			String plaTodo, String plaResult) {
-		this.plaId = plaId;
-		this.plaChcId = plaChcId;
+	public SalPlan(Date plaDate, String plaTodo,
+			String plaResult) {
 		this.plaDate = plaDate;
 		this.plaTodo = plaTodo;
 		this.plaResult = plaResult;
@@ -62,6 +63,14 @@ public class SalPlan implements java.io.Serializable {
 
 	public void setPlaChcId(Integer plaChcId) {
 		this.plaChcId = plaChcId;
+	}
+
+	public SalChance getSalChance() {
+		return salChance;
+	}
+
+	public void setSalChance(SalChance salChance) {
+		this.salChance = salChance;
 	}
 
 	public Date getPlaDate() {
@@ -87,11 +96,11 @@ public class SalPlan implements java.io.Serializable {
 	public void setPlaResult(String plaResult) {
 		this.plaResult = plaResult;
 	}
+
 	@Override
 	public String toString() {
-		return "SalPlan [plaChcId=" + plaChcId + ", plaDate=" + plaDate
-				+ ", plaId=" + plaId + ", plaResult=" + plaResult
-				+ ", plaTodo=" + plaTodo + "]";
+		return "SalPlan [plaDate=" + plaDate + ", plaId=" + plaId
+				+ ", plaResult=" + plaResult + ", plaTodo=" + plaTodo + "]";
 	}
-	
+
 }

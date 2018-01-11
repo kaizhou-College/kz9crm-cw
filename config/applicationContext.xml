@@ -41,6 +41,8 @@
 			<tx:method name="update*" propagation="REQUIRED" />
 			<tx:method name="delete*" propagation="REQUIRED" />
 			<tx:method name="check" propagation="REQUIRED"/>
+			<tx:method name="save*" propagation="REQUIRED"/>
+				<tx:method name="del*" propagation="REQUIRED"/>
 			<tx:method name="*" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
@@ -48,10 +50,6 @@
 	<aop:config>
 		<aop:pointcut expression="execution(* com.kz.crm.service.impl.*.*(..))"
 			id="kzpoint" />
-		<aop:advisor advice-ref="kzadvice" pointcut-ref="kzpoint" />
+		<aop:advisor advice-ref="kzadvice" pointcut-ref="kzpointcut" />
 	</aop:config>
-
-
-
-
 </beans>

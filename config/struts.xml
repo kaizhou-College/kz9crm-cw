@@ -3,7 +3,7 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	<package name="kzcrm" extends="struts-default">
+	<package name="kzcrm" extends="struts-default" namespace="/" >
 		<action name="transaction_*" class="salPlanTransAction" method="{1}">
 			<result name="PlanAddok">dev.jsp</result>
 		</action>
@@ -12,8 +12,18 @@
 			<result name="SelByIdok">~cust/lost/confirm.jsp</result>
 			<result name="SelByIdokT">~cust/lost/relay.jsp</result>
 		</action>
+		
 		<action name="cstLostTransAction_*" class="cstLostTransAction" method="{1}">
 			<result name="Updateok" type="redirectAction">custLostSel_SelByPage</result>
 		</action>
-	</package>
-</struts>
+		
+			<action name="sale_*" class="salChanceAction" method="{1}">
+				<result name="list_error">index.jsp</result>
+				<result name="list_success">/jsp/~sale/list.jsp</result>
+				<result name="gQuery_success">/jsp/~sale/listData.jsp</result>
+				<result name="del_success" type="redirectAction">sale_list</result>
+				<result name="queryDis_success">/jsp/~sale/dispatch.jsp</result>
+				<result name="editQuery_success">/jsp/~sale/edit.jsp</result>
+			</action>
+		</package>
+	</struts>

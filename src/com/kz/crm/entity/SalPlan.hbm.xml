@@ -15,6 +15,7 @@
         <property name="plaChcId" type="java.lang.Integer">
             <column name="PLA_CHC_ID" precision="22" scale="0" not-null="true" />
         </property>
+        
         <property name="plaDate" type="java.util.Date">
             <column name="PLA_DATE" length="7" not-null="true" />
         </property>
@@ -24,5 +25,6 @@
         <property name="plaResult" type="java.lang.String">
             <column name="PLA_RESULT" length="1000" />
         </property>
+        <many-to-one name="salChance" class="com.kz.crm.entity.SalChance" column="PLA_CHC_ID" unique="true"></many-to-one>
     </class>
 </hibernate-mapping>

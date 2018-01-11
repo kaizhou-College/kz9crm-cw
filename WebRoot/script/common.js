@@ -2,7 +2,7 @@ function reload(){
 	window.location.reload();
 }
 function help(msg){
-	alert('»¶Ó­Ê¹ÓÃ'+msg);
+	alert('æ¬¢è¿ä½¿ç”¨'+msg);
 }
 
 function to(url){
@@ -12,16 +12,17 @@ function back(){
 	history.go(-1);
 }
 function save(url){
-	alert('±£´æ³É¹¦£¡');
+	alert('ä¿å­˜æˆåŠŸï¼');
 	to(url);
 }
 function add(url){
-	alert('ĞÂ½¨³É¹¦£¡');
+	alert('æ–°å»ºæˆåŠŸï¼');
 	to(url);
 }
 function del(msg){
-	if (window.confirm("È·ÈÏÉ¾³ı"+msg+"£¿")){
+	if (window.confirm("ç¡®è®¤åˆ é™¤"+msg+"ï¼Ÿ")){
 		reload();
+		alert(1);
 	}
 }
 function setCurTime(oid){

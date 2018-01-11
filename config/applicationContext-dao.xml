@@ -22,4 +22,8 @@
 		</property>
 	</bean>
 	
-	</beans>
+
+		<bean id="salChanceDaoImpl" class="com.kz.crm.dao.impl.SalChanceDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+</beans>
