@@ -22,6 +22,7 @@ function add(url){
 function del(msg){
 	if (window.confirm("确认删除"+msg+"？")){
 		reload();
+		alert(1);
 	}
 }
 function setCurTime(oid){
