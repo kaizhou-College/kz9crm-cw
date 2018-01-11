@@ -1,0 +1,8 @@
+*.MF
+.myeclipse/
+.settings/
+*.class
+classes/
+.classpath
+.mymetadata
+.project

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="kzcrm" extends="struts-default">
+		<action name="transaction_*" class="salPlanTransAction" method="{1}">
+			<result name="PlanAddok">dev.jsp</result>
+		</action>
+		<action name="custLostSel_*" class="cstLostSelAction" method="{1}">
+			<result name="SelByPageok">~cust/lost/list.jsp</result>
+			<result name="SelByIdok">~cust/lost/confirm.jsp</result>
+			<result name="SelByIdokT">~cust/lost/relay.jsp</result>
+		</action>
+		<action name="cstLostTransAction_*" class="cstLostTransAction" method="{1}">
+			<result name="Updateok" type="redirectAction">custLostSel_SelByPage</result>
+		</action>
+	</package>
+</struts>
