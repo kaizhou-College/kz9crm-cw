@@ -45,26 +45,6 @@
             <column name="CUST_ADDR" />
         </property>
         
-        <property name="custZip" type="java.lang.String">
-            <column name="CUST_ZIP" />
-        </property>
-        
-        <property name="custTel" type="java.lang.String">
-            <column name="CUST_TEL" />
-        </property>
-        
-        <property name="custFax" type="java.lang.String">
-            <column name="CUST_FAX" />
-        </property>
-        
-        <property name="custWebsite" type="java.lang.String">
-            <column name="CUST_WEBSITE" />
-        </property>
-        
-        <property name="custLicenceNo" type="java.lang.String">
-            <column name="CUST_LICENCE_NO" />
-        </property>
-        
         <property name="custChieftain" type="java.lang.String">
             <column name="CUST_CHIEFTAIN" />
         </property>
@@ -122,6 +102,11 @@
         <set name="cstlinkman" cascade="all" lazy="false">
         	<key column="LKM_CUST_NO"></key>
         	<one-to-many class="com.kz.crm.entity.CstLinkman"/>
+        </set>
+        
+        <set name="orders" cascade="all">
+        	<key column="ODR_CUSTOMER"></key>
+        	<one-to-many class="com.kz.crm.entity.Orders"/>
         </set>
     </class>
 </hibernate-mapping>

@@ -1,6 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@include file="../../common/comm.jsp" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@include file="/comm/comm.jsp"%>
 <html>
 <head>
 <title>jb-aptech毕业设计项目</title>
@@ -8,7 +7,7 @@
 <script src="${basePath}/script/common.js"></script>
 </head>
 <body>
-
+<form action="change_update">
 <div class="page_title">销售机会管理&nbsp; &gt; 编辑销售机会</div>
 <div class="button_bar">
 	<button class="common_button" onclick="help('');">帮助</button>
@@ -16,6 +15,7 @@
 	<button class="common_button" onclick="save('list.html');">保存</button>  
 </div>
 <table class="query_form_table">
+<s:iterator>
 	<tr>
 		<th>编号</th>
 		<td><input readonly value="1" /></td>
@@ -50,6 +50,7 @@
 		<td><input id="t1" name="T15" value="2007-12-6 16:09:8" readonly size="20" /><span class="red_star">*</span></td>
 	</tr>
 </table>
+</s:iterator>
 <br />
 <table disabled class="query_form_table" id="table1">
 	<tr>
@@ -68,6 +69,7 @@
 			<input id="t2" name="T20" readonly size="20" /><span class="red_star">*</span></td>
 	</tr>
 </table>
+</form>
 <script>
 	setCurTime('t1');
 	setCurTime('t2');

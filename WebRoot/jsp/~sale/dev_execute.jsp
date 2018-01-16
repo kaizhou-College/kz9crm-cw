@@ -1,6 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@include file="../../common/comm.jsp" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@include file="/comm/comm.jsp"%>
 <html>
 <head>
 <title>jb-aptech毕业设计项目</title>
@@ -21,46 +20,50 @@
 <table class="query_form_table">
 	<tr>
 		<th>编号</th>
-		<td>1</td>
+		<td><s:property value="planList.chcId"/>  </td>
 		<th>机会来源</th>
 		<td>
-			　</td>
+		<%--<s:property value="planList."/> --%>	 
+		</td>
 	</tr>
 	<tr>
 		<th>客户名称</th>
-		<td>睿智电脑</td>
+		<td><s:property value="planList.chcCustName"/> </td>
 		<th>成功机率（%）</th>
-		<td>&nbsp;70</td>
+		<td>&nbsp;<%--<s:property value="planList."/>--%> </td>
 	</tr>	
 	<tr>
 		<th>概要</th>
-		<td colspan="3">采购笔记本电脑意向</td>
+		<td><s:property value="planList.chcTitle"/> </td>
+		<th>状态</th>
+		<td style="color:red;"><s:property value="planList.chcStatus"/> </td>	
 	</tr>
 	<tr>
 		<th>联系人</th>
-		<td>刘先生</td>
+		<td><s:property value="planList.chcRate"/> </td>
 		<th>联系人电话</th>
-		<td>13729239239</td>
+		<td><s:property value="planList.chcLinkman"/> </td>
 	</tr>
 	<tr>
 		<th>机会描述</th>
-		<td colspan="3">...</td>
+		<td colspan="3"><s:property value="planList.chcDesc"/> </td>
 	</tr>
 	<tr>
 		<th>创建人</th>
-		<td>刘颖</td>
+		<td><s:property value="planList.chcCreateBy"/> </td>
 		<th>创建时间</th>
-		<td>2007年12月06日 16时09分08秒</td>
+		<td><s:property value="planList.chcCreateDate"/> </td>
 	</tr>
 	<tr>
 		<th>指派给</th>
 		<td>
-			郭小美</td>
+			<s:property value="planList.chcDueTo"/> </td>
 		<th>指派时间</th>
 		<td>
-			2007年12月07日 09时00分38秒</td>
+			<s:property value="planList.chcDueDate"/> </td>
 	</tr>
 </table>
+<s:debug></s:debug>
 <br />
 <table class="data_list_table" id="table1">
 	<tr>
@@ -68,20 +71,19 @@
 		<th>计划</th>
 		<th>执行效果</th>
 	</tr>
-	<tr>
-		<td class="list_data_text">2008年01月18日</td>
-		<td class="list_data_ltext">初步接触，了解客户意向。</td>
-		<td class="list_data_ltext"><input />　
-	<button class="common_button" onclick="save('dev_execute.html');">保存</button>
+	<s:iterator value="planList.salPlan" var="list">
+		<form action="plan_planResult" method="post">
+			<input name="sc.chcId" value="${planList.chcId}" type="hidden">
+			<input name="salplan.plaId" value="${list.plaId}" type="hidden">
+		<tr>
+			<td class="list_data_text"><s:property value="#list.plaDate"/> </td>
+			<td class="list_data_ltext"><s:property value="#list.plaTodo"/></td>
+			<td class="list_data_ltext"><input name="salplan.plaResult"  value="<s:property value='#list.plaResult'/>"/>　
+			<input type="submit"  class="common_button"  value="保存" >
 		</td>
-	</tr>
-	<tr>
-		<td class="list_data_text">2008年02月22日</td>
-		<td class="list_data_ltext">推介产品。</td>
-		<td class="list_data_ltext"><input name="T1" size="20" />　
-	<button class="common_button" onclick="save('dev_execute.html');">保存</button>
-		</td>
-	</tr>
+		</tr>
+	</form>
+	</s:iterator>
 	</table>
 </body>
 </html>

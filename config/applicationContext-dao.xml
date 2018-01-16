@@ -12,21 +12,21 @@
 		<bean id="cldi" class="com.kz.crm.dao.impl.CstLostDaoImpl">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
+		<bean id="basDaoImpl" class="com.kz.crm.dao.impl.BasDictDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
 		
-		
-		<bean id="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-		<property name="triggers">
-			<list>
-				<ref bean="doTime" />
-			</list>
-		</property>
-	</bean>
-	
+		<bean id="planDaoImpl" class="com.kz.crm.dao.impl.PlanDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
 
 		<bean id="salChanceDaoImpl" class="com.kz.crm.dao.impl.SalChanceDaoImpl">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
 
+		<bean id="reptDaoImpl" class="com.kz.crm.dao.impl.ReptDaoImpl" >
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
 
 		<bean id="cstCustomerDaoImpl" class="com.kz.crm.dao.impl.CstCustomerDaoImpl">
 			<property name="sessionFactory" ref="sessionFactory"></property>
@@ -34,5 +34,7 @@
 		<bean id="linkManDaoImpl" class="com.kz.crm.dao.impl.LinkManDaoImpl">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
-
+	<bean id="customerDaoImpl" class="com.kz.crm.dao.impl.CustomerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 </beans>

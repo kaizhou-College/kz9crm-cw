@@ -9,85 +9,65 @@ import java.sql.Timestamp;
 public class Orders implements java.io.Serializable {
 
 	// Fields
-
+	private CstCustomer cstCustomer;
 	private Integer odrId;
-	private String odrCustomer;
 	private Timestamp odrDate;
+	private String odrCustomer;
 	private String odrAddr;
 	private String odrStatus;
-
-	// Constructors
-
-	/** default constructor */
-	public Orders() {
+	public CstCustomer getCstCustomer() {
+		return cstCustomer;
 	}
-
-	/** minimal constructor */
-	public Orders(Integer odrId, String odrCustomer, Timestamp odrDate,
-			String odrStatus) {
-		this.odrId = odrId;
-		this.odrCustomer = odrCustomer;
-		this.odrDate = odrDate;
-		this.odrStatus = odrStatus;
+	public void setCstCustomer(CstCustomer cstCustomer) {
+		this.cstCustomer = cstCustomer;
 	}
-
-	@Override
-	public String toString() {
-		return "Orders [odrAddr=" + odrAddr + ", odrCustomer=" + odrCustomer
-				+ ", odrDate=" + odrDate + ", odrId=" + odrId + ", odrStatus="
-				+ odrStatus + "]";
-	}
-
-	/** full constructor */
-	public Orders(Integer odrId, String odrCustomer, Timestamp odrDate,
-			String odrAddr, String odrStatus) {
-		this.odrId = odrId;
-		this.odrCustomer = odrCustomer;
-		this.odrDate = odrDate;
-		this.odrAddr = odrAddr;
-		this.odrStatus = odrStatus;
-	}
-
-	// Property accessors
-
 	public Integer getOdrId() {
-		return this.odrId;
+		return odrId;
 	}
-
 	public void setOdrId(Integer odrId) {
 		this.odrId = odrId;
 	}
-
-	public String getOdrCustomer() {
-		return this.odrCustomer;
-	}
-
-	public void setOdrCustomer(String odrCustomer) {
-		this.odrCustomer = odrCustomer;
-	}
-
 	public Timestamp getOdrDate() {
-		return this.odrDate;
+		return odrDate;
 	}
-
 	public void setOdrDate(Timestamp odrDate) {
 		this.odrDate = odrDate;
 	}
-
 	public String getOdrAddr() {
-		return this.odrAddr;
+		return odrAddr;
 	}
-
 	public void setOdrAddr(String odrAddr) {
 		this.odrAddr = odrAddr;
 	}
-
 	public String getOdrStatus() {
-		return this.odrStatus;
+		return odrStatus;
 	}
-
 	public void setOdrStatus(String odrStatus) {
 		this.odrStatus = odrStatus;
 	}
-
+	public String getOdrCustomer() {
+		return odrCustomer;
+	}
+	public void setOdrCustomer(String odrCustomer) {
+		this.odrCustomer = odrCustomer;
+	}
+	public Orders(CstCustomer cstCustomer, Integer odrId, Timestamp odrDate,
+			String odrAddr, String odrStatus) {
+		super();
+		this.cstCustomer = cstCustomer;
+		this.odrId = odrId;
+		this.odrDate = odrDate;
+		this.odrAddr = odrAddr;
+		this.odrStatus = odrStatus;
+	}
+	public Orders() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "Orders [cstCustomer=" + cstCustomer + ", odrAddr=" + odrAddr
+				+ ", odrDate=" + odrDate + ", odrId=" + odrId + ", odrStatus="
+				+ odrStatus + "]";
+	}
+	
 }

@@ -18,6 +18,7 @@ public class CstLostTransAction {
 		return "Updateok";
 	}
 	public String superUpdate(){
+		System.out.println(cstl);
 		clsi.updateT(cstl);
 		return "Updateok";
 	}

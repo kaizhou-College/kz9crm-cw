@@ -1,6 +1,8 @@
 package com.kz.crm.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * SalChance entity. @author MyEclipse Persistence Tools
@@ -25,7 +27,8 @@ public class SalChance implements java.io.Serializable {
 	private String chcDueTo;
 	private Date chcDueDate;
 	private Integer chcStatus;
-	private SalPlan salPlan;
+	private Set<SalPlan> salPlan=new HashSet<SalPlan>();
+	
 	// Constructors
 
 	/** default constructor */
@@ -78,11 +81,12 @@ public class SalChance implements java.io.Serializable {
 		return this.chcId;
 	}
 
-	public SalPlan getSalPlan() {
+
+	public Set<SalPlan> getSalPlan() {
 		return salPlan;
 	}
 
-	public void setSalPlan(SalPlan salPlan) {
+	public void setSalPlan(Set<SalPlan> salPlan) {
 		this.salPlan = salPlan;
 	}
 

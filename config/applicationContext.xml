@@ -38,18 +38,23 @@
 	<tx:advice id="kzadvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="*Add*" propagation="REQUIRED" />
 			<tx:method name="update*" propagation="REQUIRED" />
 			<tx:method name="delete*" propagation="REQUIRED" />
 			<tx:method name="check" propagation="REQUIRED"/>
 			<tx:method name="save*" propagation="REQUIRED"/>
-				<tx:method name="del*" propagation="REQUIRED"/>
+			<tx:method name="del*" propagation="REQUIRED"/>
+			<tx:method name="planUpdate*" propagation="REQUIRED"/>
+			<tx:method name="planDelete" propagation="REQUIRED"/>
+			<tx:method name="planResultUpdate" propagation="REQUIRED"/>
+			<tx:method name="planSuccessUpdate" propagation="REQUIRED"/>
 			<tx:method name="*" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
 
 	<aop:config>
 		<aop:pointcut expression="execution(* com.kz.crm.service.impl.*.*(..))"
-			id="kzpoint" />
+			id="kzpointcut" />
 		<aop:advisor advice-ref="kzadvice" pointcut-ref="kzpointcut" />
 	</aop:config>
 </beans>

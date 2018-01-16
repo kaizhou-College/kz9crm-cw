@@ -48,6 +48,33 @@ public class SalChanceAction extends ActionSupport{
 		return "del_success";
 	}
 	
+	public String list2(){
+		if(page==0){
+			page=1;
+		}
+		pageSize=3;
+		if(salChance==null){
+			chances = salChanceService.findByPage(page, pageSize);
+			count = salChanceService.queryCount();
+			max = salChanceService.queryMax(pageSize);
+			if(chances==null){
+				return "list_error2";
+			}
+			return "list_success2";
+		}else{
+			chances = salChanceService.findByGaoJi(page,pageSize,salChance);
+			count = salChanceService.queryCountByGaoJi(salChance);
+			max = salChanceService.queryMaxByGaoJi(pageSize, salChance);
+			if(chances==null){
+				return "gQuery_error2";
+				
+			}
+			return "gQuery_success2";
+			
+		}
+		
+	}
+	
 	//分页查询机会数据加高级查询分页
 	public String list(){
 		if(page==0){

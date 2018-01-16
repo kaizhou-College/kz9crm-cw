@@ -14,7 +14,7 @@ public class CstLinkman implements java.io.Serializable {
 	private CstCustomer cstCustomer;
 	private String lkmCustName;
 	private String lkmName;
-	private Integer lkmSex;
+	private String lkmSex;
 	private String lkmPostion;
 	private String lkmTel;
 	private String lkmMobile;
@@ -33,7 +33,7 @@ public class CstLinkman implements java.io.Serializable {
 
 	/** full constructor */
 	public CstLinkman(String lkmCustName, String lkmName,
-			Integer lkmSex, String lkmPostion, String lkmTel, String lkmMobile,
+			String lkmSex, String lkmPostion, String lkmTel, String lkmMobile,
 			String lkmMemo) {
 		this.lkmCustName = lkmCustName;
 		this.lkmName = lkmName;
@@ -80,11 +80,11 @@ public class CstLinkman implements java.io.Serializable {
 		this.lkmName = lkmName;
 	}
 
-	public Integer getLkmSex() {
+	public String getLkmSex() {
 		return this.lkmSex;
 	}
 
-	public void setLkmSex(Integer lkmSex) {
+	public void setLkmSex(String lkmSex) {
 		this.lkmSex = lkmSex;
 	}
 

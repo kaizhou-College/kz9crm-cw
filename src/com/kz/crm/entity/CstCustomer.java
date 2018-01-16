@@ -34,9 +34,11 @@ public class CstCustomer implements java.io.Serializable {
 
 	//一个客户信息管理对应多个联系人(一对多)
 	private Set<CstLinkman> cstlinkman=new HashSet<CstLinkman>();
+	private Set<Orders> orders = new HashSet<Orders>();
 	// Fields
 
 	private String custNo;
+	
 	@Override
 	public String toString() {
 		return "CstCustomer [custAddr=" + custAddr + ", custBank=" + custBank
@@ -58,9 +60,21 @@ public class CstCustomer implements java.io.Serializable {
 
 
 
+	public Set<Orders> getOrders() {
+		return orders;
+	}
+
+
+
+
+	public void setOrders(Set<Orders> orders) {
+		this.orders = orders;
+	}
+
+
+
+
 	/** full constructor */
-
-
 	// Property accessors
 
 	public String getCustNo() {

@@ -10,9 +10,6 @@
             <column name="ODR_ID" precision="22" scale="0" />
             <generator class="assigned" />
         </id>
-        <property name="odrCustomer" type="java.lang.String">
-            <column name="ODR_CUSTOMER" not-null="true" />
-        </property>
         <property name="odrDate" type="java.sql.Timestamp">
             <column name="ODR_DATE" length="7" not-null="true" />
         </property>
@@ -22,5 +19,7 @@
         <property name="odrStatus" type="java.lang.String">
             <column name="ODR_STATUS" length="1" not-null="true" />
         </property>
+        
+        <many-to-one name="cstCustomer" column="ODR_CUSTOMER" class="com.kz.crm.entity.CstCustomer"></many-to-one>
     </class>
 </hibernate-mapping>

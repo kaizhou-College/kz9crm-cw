@@ -896,12 +896,12 @@ function initialise() {
 	
 	L01 = theMenu.addChild(l2ID, "Folder", "营销管理", "", "营销管理...");
 	L0101 = theMenu.addChild(L01, "Document", "销售机会管理", "${basePath}/sale_list", "销售机会管理...");
-	L0102 = theMenu.addChild(L01, "Document", "客户开发计划", "~sale/dev.html", "客户开发计划...");
+	L0102 = theMenu.addChild(L01, "Document", "客户开发计划", "sale_list2", "客户开发计划...");
 
 	
 	L02 = theMenu.addChild(l2ID, "Folder", "客户管理", "", "客户管理...");
 	L0201 = theMenu.addChild(L02, "Document", "客户信息管理", "${basePath}/cust_list", "客户信息管理...");
-	L0201 = theMenu.addChild(L02, "Document", "客户流失管理", "~cust/lost/list.html", "客户流失管理...");	
+	L0201 = theMenu.addChild(L02, "Document", "客户流失管理", "custLostSel_SelByPage", "客户流失管理...");	
 
 	L03 = theMenu.addChild(l2ID, "Folder", "服务管理", "", "客户服务管理...");
 	L0301 = theMenu.addChild(L03, "Document", "服务创建", "~cust/service/add.html", "服务创建...");
@@ -912,13 +912,13 @@ function initialise() {
 	
 	
 	L04 = theMenu.addChild(l2ID, "Folder", "统计报表", "", "统计报表...");
-	L0401 = theMenu.addChild(L04, "Document", "客户贡献分析", "~rept/contr.html", "客户贡献分析...");
-	L0402 = theMenu.addChild(L04, "Document", "客户构成分析", "~rept/cons.html", "客户构成分析...");
-	L0403 = theMenu.addChild(L04, "Document", "客户服务分析", "~rept/ser.html", "客户服务分析...");
-	L0404 = theMenu.addChild(L04, "Document", "客户流失分析", "~rept/lost.html", "客户流失分析...");
+	L0401 = theMenu.addChild(L04, "Document", "客户贡献分析", "rept_contrSel", "客户贡献分析...");
+	L0402 = theMenu.addChild(L04, "Document", "客户构成分析", "rept_consSel", "客户构成分析...");
+	L0403 = theMenu.addChild(L04, "Document", "客户服务分析", "rept_serSel", "客户服务分析...");
+	L0404 = theMenu.addChild(L04, "Document", "客户流失分析", "rept_lostSel", "客户流失分析...");
 	
 	L05 = theMenu.addChild(l2ID, "Folder", "基础数据", "", "基础数据...");
-	L0501 = theMenu.addChild(L05, "Document", "数据字典管理", "~basd/dict.html", "数据字典管理...");
+	L0501 = theMenu.addChild(L05, "Document", "数据字典管理", "seldict_SelByPage", "数据字典管理...");
 	L0502 = theMenu.addChild(L05, "Document", "查询产品信息", "~basd/product.html", "查询产品信息...");
 	L0503 = theMenu.addChild(L05, "Document", "查询库存", "~basd/storage.html", "查询库存...");
         
@@ -944,8 +944,8 @@ if (self.name == 'menu') {
 
 /*if (theBrowser.IE){*/
 	self.document.writeln('<frameset rows="*" cols="180,*" border="0"  noresize framespacing="2">'); 
-	self.document.writeln('<frame name="menu" src="menu.jsp"  border="0" scrolling="auto" marginwidth="0"  leftmargin="0" marginheight="0" APPLICATION="yes">');
-	self.document.writeln('<frame name="text" src="mywork.jsp"  frameborder="no"  marginwidth="0" marginheight="0" APPLICATION="yes">');
+	self.document.writeln('<frame name="menu" src="jsp/menu.jsp"  border="0" scrolling="auto" marginwidth="0"  leftmargin="0" marginheight="0" APPLICATION="yes">');
+	self.document.writeln('<frame name="text" src="jsp/mywork.jsp"  frameborder="no"  marginwidth="0" marginheight="0" APPLICATION="yes">');
 	self.document.writeln('</frameset>');
 /*}else{
 	self.document.writeln('<frameset rows="*" cols="160,*" border="0"  noresize framespacing="2">'); 

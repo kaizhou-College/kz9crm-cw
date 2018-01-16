@@ -33,7 +33,7 @@ function setCurTime(oid){
 	var hours=now.getHours();
 	var minutes=now.getMinutes();
 	var seconds=now.getSeconds();
-	var timeString = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+	var timeString = year+"-"+month+"-"+day;
 	var oCtl = document.getElementById(oid);
 	oCtl.value = timeString;
 }

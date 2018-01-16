@@ -3,7 +3,13 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	<package name="kzcrm" extends="struts-default" namespace="/" >
+	<package name="kzcrm" extends="struts-default">
+		<action name="dictTransAtion_*" class="dictTransAtion" method="{1}">
+				<result name="updateok" type="redirectAction">seldict_SelByPage</result>
+				<result name="deleteok" type="redirectAction">seldict_SelByPage</result>
+		</action>
+		
+		
 		<action name="transaction_*" class="salPlanTransAction" method="{1}">
 			<result name="PlanAddok">dev.jsp</result>
 		</action>
@@ -20,12 +26,13 @@
 			<action name="sale_*" class="salChanceAction" method="{1}">
 				<result name="list_error">index.jsp</result>
 				<result name="list_success">/jsp/~sale/list.jsp</result>
+				<result name="list_success2">/jsp/~sale/dev.jsp</result>
 				<result name="gQuery_success">/jsp/~sale/listData.jsp</result>
 				<result name="del_success" type="redirectAction">sale_list</result>
 				<result name="queryDis_success">/jsp/~sale/dispatch.jsp</result>
 				<result name="editQuery_success">/jsp/~sale/edit.jsp</result>
 			</action>
-			<action name="cust_*" class="cstCustomerAction" method="{1}">
+			<action name="customer_*" class="cstCustomerAction" method="{1}">
 				<result name="list_success">/jsp/~cust/cust/list.jsp</result>
 				<result name="gaolist_success">/jsp/~cust/cust/listData.jsp</result>
 				<result name="orders_success">/jsp/~cust/cust/orders.jsp</result>
@@ -33,11 +40,73 @@
 				<result name="linkman_success">/jsp/~cust/cust/linkman.jsp</result>
 				<result name="edit_success">/jsp/~cust/cust/edit.jsp</result>
 				<result name="delcust_success" type="redirectAction">cust_list</result>
-				
+				<!-- 高级查询 -->
+			<result name="customerDimList">
+				/jsp/~rept/~cust/cust/list.jsp
+			</result>
+			<result name="customerList">
+				/jsp/~cust/cust/list.jsp
+			</result>
+			<result name="customerDelete" type="redirectAction">
+				customer_customerList
+			</result>
+			<result name="customerUpdateList">
+				/jsp/~cust/cust/edit.jsp
+			</result>
+			<result name="customerUpdate" type="redirectAction">
+				customer_customerList
+			</result>
 			</action>
+<!--			<action name="customer_*" class="cstCustomerAction" method="{1}">-->
+<!--			-->
+<!--		</action>-->
 			<action name="link_*" class="cstLinkManAction" method="{1}">
 				<result name="select_success">/jsp/~cust/cust/linkman_add.jsp</result>
-				
 			</action>
+			
+			<action name="rept_*" class="reptAction" method="{1}">
+				<result name="rept_conteSel">/jsp/~rept/contr.jsp</result>
+				<result name="rept_consSel">/jsp/~rept/cons.jsp</result>
+				<result name="rept_serSel">/jsp/~rept/ser.jsp</result>
+				<result name="rept_lostSel">/jsp/~rept/lost.jsp</result>
+			</action>
+			
+			<action name="seldict_*" class="selDictAction" method="{1}">
+				<result name="SelDictOk">/jsp/~basd/dict.jsp</result>
+				<result name="SelByIdOk">/jsp/~basd/dict_edit.jsp</result>
+			</action>
+			
+			<action name="plan_*" method="{1}" class="planAction">
+				<result name="byPage">
+					/jsp/~sale/dev.jsp
+				</result>
+				<result name="ajaxPlanDim">
+					/jsp/~sale/listDao.jsp
+				</result>
+				<result name="planList">
+					/jsp/~sale/dev_detail.jsp
+				</result>
+				<result  name="planListBeing">
+					/jsp/~sale/dev_plan.jsp
+				</result>
+				<result name="ajaxPlanUpdate">
+					/jsp/~sale/dev_plan.jsp
+				</result>
+				<result name="planAdd" type="chain"> 
+					plan_planListBeing
+				</result>
+				<result name="planDelete" type="chain"> 
+					plan_planListBeing
+				</result>
+				<result name="planExecuteList">
+					/jsp/~sale/dev_execute.jsp
+				</result>
+				<result name="planResult" type="chain">
+					plan_planExecuteList 
+				</result>
+				<result name="planSuccess" type="chain">
+					sale_list2
+				</result>
+		</action>
 		</package>
 	</struts>

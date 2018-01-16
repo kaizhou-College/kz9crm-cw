@@ -2,6 +2,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <%@taglib uri="http://www.wtg.com//pageTag" prefix="kz" %>
+<%@taglib uri="http://kzcrm/cw" prefix="cw"%>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;

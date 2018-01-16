@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.junit.Test;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.kz.crm.dao.CstLostDao;
@@ -23,8 +24,7 @@ public class CstLostDaoImpl extends HibernateDaoSupport implements CstLostDao {
 		Session session = this.getSession();
 		List<CstLost> list = session.createQuery("from CstLost").setFirstResult((index-1)*page).setMaxResults(page).list();
 		return list;
-	}	
-
+	}
 	@Override
 	public CstLost selById(int id) {
 		Session session = this.getSession();
@@ -46,18 +46,8 @@ public class CstLostDaoImpl extends HibernateDaoSupport implements CstLostDao {
 		Session session = this.getSession();
 		CstLost object = (CstLost) session.get(CstLost.class, cstl.getLstId());
 		object.setLstDelay(cstl.getLstDelay());
-		System.out.println(object+"---------------------------------");
 		session.update(object);
 	}
-//	private String lstCustNo;
-//	private String lstCustName;
-//	private Integer lstCustManagerId;
-//	private String lstCustManagerName;
-//	private Timestamp lstLastOrderDate;
-//	private Timestamp lstLostDate;
-//	private String lstDelay;
-//	private String lstReason;
-//	private String lstStatus;
 	@Override
 	public void add(CstLost cstl) {
 		Session session = this.getSession();
@@ -74,12 +64,12 @@ public class CstLostDaoImpl extends HibernateDaoSupport implements CstLostDao {
 		for(int i =0;i<list1.size();i++){
 			CstLost cl = new CstLost();
 			System.out.println(1);
-			list2 = session.createQuery(hql2).setParameter(0, list1.get(i).getOdrCustomer()).list();
+			list2 = session.createQuery(hql2).setParameter(0, list1.get(i).getCstCustomer().getCustName()).list();
 			cl.setLstCustManagerId(list2.get(i).getCustManagerId());
 			cl.setLstCustManagerName(list2.get(i).getCustManagerName());
 			cl.setLstCustName(list2.get(i).getCustName());
 			cl.setLstStatus(list2.get(i).getCustStatus());
-			cl.setLstDelay("ÔÝÎÞ");
+			cl.setLstDelay("æš‚æ— ");
 			cl.setLstLastOrderDate(list1.get(i).getOdrDate());
 			cl.setLstCustNo(list2.get(i).getCustNo());
 			list3.add(cl);
